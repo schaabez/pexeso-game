@@ -1,0 +1,88 @@
+html, body {
+	margin: 0;
+}
+
+body {
+	height:          100vh;
+	display:         flex;
+	align-items:     center;
+	justify-content: center;
+}
+
+#game {
+	
+	.game-options {
+		margin-bottom: 1rem;
+	}
+	
+	.game-content {
+		margin:                auto;
+		display:               grid;
+		grid-gap:              .75rem;
+		grid-template-columns: repeat(var(--cols), auto);
+		grid-template-rows: repeat(var(--rows), auto);
+		
+		background:            #F3F4F6;
+		padding:               2rem;
+		
+		border-radius:         1rem;
+		
+		&.show {
+			.piece {
+				display: block;
+			}
+		}
+		
+	}
+}
+
+.piece {
+	
+	cursor:        pointer;
+	display:       none;
+	border-radius: 1rem;
+	
+	transition:   opacity .34s ease;
+	
+	.questionMark,
+	img {
+		display:       block;
+		width:         64px;
+		height:        64px;
+		border-radius: 1rem;
+	}
+	
+	.questionMark {
+		display:         flex;
+		align-items:     center;
+		justify-content: center;
+		line-height:     1;
+		background:      #DDD;
+		color:           rgba(0, 0, 0, .75);
+		font-size:       3rem;
+	}
+	
+	&.solved {
+		opacity: .5;
+		pointer-events: none;
+	}
+	
+	&.waiting {
+		outline:        2px solid red;
+		opacity:        .75;
+		pointer-events: none;
+	}
+	
+	&.solved,
+	&.show-image {
+		.questionMark {
+			display: none;
+		}
+	}
+	
+	&:hover {
+		.questionMark {
+			background: darken(#DDD, 5);
+		}
+	}
+}

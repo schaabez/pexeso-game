@@ -1,0 +1,67 @@
+html, body {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game .game-options {
+  margin-bottom: 1rem;
+}
+#game .game-content {
+  margin: auto;
+  display: grid;
+  grid-gap: 0.75rem;
+  grid-template-columns: repeat(var(--cols), auto);
+  grid-template-rows: repeat(var(--rows), auto);
+  background: #F3F4F6;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+#game .game-content.show .piece {
+  display: block;
+}
+
+.piece {
+  cursor: pointer;
+  display: none;
+  border-radius: 1rem;
+  transition: opacity 0.34s ease;
+}
+.piece .questionMark,
+.piece img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 1rem;
+}
+.piece .questionMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  background: #DDD;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 3rem;
+}
+.piece.solved {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.piece.waiting {
+  outline: 2px solid red;
+  opacity: 0.75;
+  pointer-events: none;
+}
+.piece.solved .questionMark, .piece.show-image .questionMark {
+  display: none;
+}
+.piece:hover .questionMark {
+  background: #d0d0d0;
+}
+
+/*# sourceMappingURL=app.css.map */
